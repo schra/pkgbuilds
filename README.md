@@ -12,3 +12,20 @@ git clone git@github.com:schra/pkgbuilds.git
 cd pkgbuilds
 aurpublish setup
 ```
+
+## Adding new packages
+
+1. Write the `PKGBUILD`
+2. Commit the `PKGBUILD`. `aurpublish` will prefill the commit message. In most cases you can just leave the commit message like that.
+
+    ```
+    cd PACKAGE/
+    git add PKGBUILD
+    git commit
+    ```
+3. Push the package to both the AUR and this repository
+
+    ```
+    aurpublish PACKAGE
+    git push
+    ```
