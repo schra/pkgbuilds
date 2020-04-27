@@ -48,7 +48,7 @@ Some remarks
 
     * `_name` is the package name without the `-git` suffix (if there is any).
       It is used to install files in the file system in `package()`.
-      Never use `pkgname` in `package()`, only use it `source`.
+      Never use `pkgname` in `package()`, only use it in `source`.
     * `_mainfolder` is the folder that contains the source code.
       For Git packages this is the repository name.
       For non-Git packages it is the name of the folder inside the tar ball (normally tar balls contain exactly one directory which then contains the actual content).
