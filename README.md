@@ -19,14 +19,16 @@ Updating packages
 -----------------
 
 1. Adjust the `PKGBUILD`
-2. Commit the `PKGBUILD`. `aurpublish` will prefill the commit message. In most cases you can just leave the commit message like that.
+2. Update the hash values: `updpkgsums PKGBUILD`
+3. Build, install and manually test if the package works: `makepkg -scfi`
+4. Commit the `PKGBUILD`. `aurpublish` will prefill the commit message. In most cases you can just leave the commit message like that.
 
     ```
     cd PACKAGE/
     git add PKGBUILD
     git commit
     ```
-3. Push the package to both the AUR and this repository
+5. Push the package to both the AUR and this repository
 
     ```
     aurpublish PACKAGE
