@@ -4,7 +4,7 @@
 
 _name=cgrep-clang
 pkgname=$_name-git
-pkgver=r154.f7e9ac8
+pkgver=r179.308bc02
 _mainfolder=$_name
 pkgrel=1
 pkgdesc='grep for C/C++ source files'
@@ -38,15 +38,18 @@ prepare() {
   git submodule init
   git config submodule.cfe-extra.url "$srcdir"/cfe-extra
   git submodule update
+
+  # see https://www.archlinux.org/todo/llvm-10/
+  patch -p1 -i "$srcdir/adjust-libclang-lib-names.patch"
+}
+
+build() {
+  cd "$srcdir/$_mainfolder"
+  make
 }
 
 package() {
   cd "$srcdir/$_mainfolder"
-
-  # see https://www.archlinux.org/todo/llvm-10/
-  patch -p1 -i "$srcdir/adjust-libclang-lib-names.patch"
-
-  make
 
   # `make install` isn't provided, so we have to manually copy the files
   install -dm755 "$pkgdir"/{usr/bin,usr/share/licenses/$_name}
