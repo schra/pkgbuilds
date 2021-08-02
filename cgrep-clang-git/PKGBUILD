@@ -9,12 +9,12 @@ _mainfolder=$_name
 pkgrel=1
 pkgdesc='grep for C/C++ source files'
 arch=(any)
-url=https://github.com/bloodstalker/cgrep
+url=https://github.com/terminaldweller/cgrep
 license=(GPL3)
 depends=(llvm clang)
 makedepends=(git)
 source=($_name::git+$url
-        git+https://github.com/bloodstalker/cfe-extra
+        git+https://github.com/terminaldweller/cfe-extra
         adjust-libclang-lib-names.patch)
 sha256sums=('SKIP'
             'SKIP'
